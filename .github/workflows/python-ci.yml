@@ -1,0 +1,29 @@
+# Run Python tests automatically on every push
+name: Python CI Pipeline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Get the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Install pytest
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Run all tests
+      - name: Run tests
+        run: python -m pytest -v
