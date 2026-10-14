@@ -26,4 +26,4 @@ jobs:
 
       # Run all tests
       - name: Run tests
-        run: python -m pytest test_cases/ -v
+        run: python -m pytest
